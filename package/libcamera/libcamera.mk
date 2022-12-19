@@ -4,9 +4,22 @@
 #
 ################################################################################
 
-LIBCAMERA_SITE = https://git.linuxtv.org/libcamera.git
-LIBCAMERA_VERSION = ba6435930f08e802cffc688d90f156a8959a0f86
-LIBCAMERA_SITE_METHOD = git
+################################################################################
+# Copilot specific
+#
+# Use the libcamera from the Raspberry Pi repos, rather than the official repo.
+################################################################################
+LIBCAMERA_VERSION = 0684c3735eb5392d79b9919b62d8b04ac9b50cc1
+LIBCAMERA_SITE = $(call github,raspberrypi,libcamera,$(LIBCAMERA_VERSION))
+
+#LIBCAMERA_SITE = https://git.linuxtv.org/libcamera.git
+#LIBCAMERA_VERSION = ba6435930f08e802cffc688d90f156a8959a0f86
+
+#LIBCAMERA_SITE_METHOD = git
+################################################################################
+# End Copilot specific
+################################################################################
+
 LIBCAMERA_DEPENDENCIES = \
 	host-openssl \
 	host-pkgconf \
@@ -131,5 +144,16 @@ define LIBCAMERA_BUILD_STRIP_IPA_SO
 endef
 
 LIBCAMERA_POST_BUILD_HOOKS += LIBCAMERA_BUILD_STRIP_IPA_SO
+
+################################################################################
+# Copilot specific
+#
+# Build the python bindings.  In addition to enabling the option we have to
+# override Buildroot's desire to disable subproject wraps.
+################################################################################
+LIBCAMERA_CONF_OPTS += -Dpycamera=enabled --wrap-mode=default
+################################################################################
+# End Copilot specific
+################################################################################
 
 $(eval $(meson-package))

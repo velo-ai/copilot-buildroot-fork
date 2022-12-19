@@ -4,7 +4,14 @@
 #
 ################################################################################
 
-LIBCAMERA_APPS_VERSION = 2d1009e3badcc8047361ff81149ad6cba3b911b5
+################################################################################
+# Copilot specific
+################################################################################
+LIBCAMERA_APPS_VERSION = 9c5d3191b3f4f71b0db7ab1111f7d5cdf4eb16da
+#LIBCAMERA_APPS_VERSION = 2d1009e3badcc8047361ff81149ad6cba3b911b5
+################################################################################
+# End Copilot specific
+################################################################################
 LIBCAMERA_APPS_SITE = $(call github,raspberrypi,libcamera-apps,$(LIBCAMERA_APPS_VERSION))
 LIBCAMERA_APPS_LICENSE = BSD-2-Clause
 LIBCAMERA_APPS_LICENSE_FILES = license.txt

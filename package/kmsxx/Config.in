@@ -7,6 +7,17 @@ config BR2_PACKAGE_KMSXX
 	depends on BR2_USE_WCHAR # fmt
 	select BR2_PACKAGE_FMT
 	select BR2_PACKAGE_LIBDRM
+	########################################################################
+	# Copilot specific
+	# 
+	# To build python bindings we need to the pybind11 subproject and
+	# meson needs a host python with SSL support to hit the https server.
+	########################################################################
+	select BR2_PACKAGE_HOST_PYTHON3
+	select BR2_PACKAGE_HOST_PYTHON3_SSL
+	########################################################################
+	# End Copilot specific
+	########################################################################
 	help
 	  libkms++ is a C++11 library for kernel mode setting.
 
