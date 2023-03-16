@@ -7,6 +7,19 @@ config BR2_PACKAGE_KMSXX
 	depends on BR2_USE_WCHAR # fmt
 	select BR2_PACKAGE_FMT
 	select BR2_PACKAGE_LIBDRM
+	########################################################################
+	# Copilot specific
+	# 
+	# To build python bindings we need pybind11 but the pybind subproject
+	# for kms is so old that it fails with Python 3.11. So build pybind
+	# so that it gets installed to staging so the old pybind subproject
+	# isn't used.
+	########################################################################
+	select BR2_PACKAGE_HOST_PYTHON3
+	select BR2_PACKAGE_PYTHON_PYBIND
+	########################################################################
+	# End Copilot specific
+	########################################################################
 	help
 	  libkms++ is a C++11 library for kernel mode setting.
 
