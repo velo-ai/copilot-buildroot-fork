@@ -132,4 +132,15 @@ endef
 
 LIBCAMERA_POST_BUILD_HOOKS += LIBCAMERA_BUILD_STRIP_IPA_SO
 
+################################################################################
+# Copilot specific
+#
+# Build the python bindings.  In addition to enabling the option we have to
+# override Buildroot's desire to disable subproject wraps.
+################################################################################
+LIBCAMERA_CONF_OPTS += -Dpycamera=enabled --wrap-mode=default
+################################################################################
+# End Copilot specific
+################################################################################
+
 $(eval $(meson-package))
