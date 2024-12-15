@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-LIBCAMERA_SITE = https://git.linuxtv.org/libcamera.git
-LIBCAMERA_VERSION = v0.3.2
-LIBCAMERA_SITE_METHOD = git
+LIBCAMERA_VERSION = 0.3.2+rpt20241119
+LIBCAMERA_SOURCE = libcamera-$(LIBCAMERA_VERSION).tar.xz
+LIBCAMERA_SITE = https://github.com/raspberrypi/libcamera/releases/download/v$(LIBCAMERA_VERSION)
 LIBCAMERA_DEPENDENCIES = \
 	host-openssl \
 	host-pkgconf \
