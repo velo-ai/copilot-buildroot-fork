@@ -42,6 +42,8 @@ LIBCAMERA_LICENSE_FILES = \
 
 LIBCAMERA_CXXFLAGS = -ggdb
 
+LIBCAMERA_CONF_OPTS += -Dbuildtype=debug
+
 ifeq ($(BR2_TOOLCHAIN_GCC_AT_LEAST_7),y)
 LIBCAMERA_CXXFLAGS = -faligned-new
 endif
